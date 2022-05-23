@@ -6,57 +6,57 @@ export const initBoardData = (height: number, width: number, mines: number) => {
     return data;
   };
   
-//   export const traverseBoard = (
-//     x: number,
-//     y: number,
-//     data: any,
-//     height: number,
-//     width: number
-//   ) => {
-//     const el = [];
+  export const traverseBoard = (
+    x: number,
+    y: number,
+    data: any,
+    height: number,
+    width: number
+  ) => {
+    const el = [];
   
-//     //up
-//     if (x > 0) {
-//       el.push(data[x - 1][y]);
-//     }
+    //up
+    if (x > 0) {
+      el.push(data[x - 1][y]);
+    }
   
-//     //down
-//     if (x < height - 1) {
-//       el.push(data[x + 1][y]);
-//     }
+    //down
+    if (x < height - 1) {
+      el.push(data[x + 1][y]);
+    }
   
-//     //left
-//     if (y > 0) {
-//       el.push(data[x][y - 1]);
-//     }
+    //left
+    if (y > 0) {
+      el.push(data[x][y - 1]);
+    }
   
-//     //right
-//     if (y < width - 1) {
-//       el.push(data[x][y + 1]);
-//     }
+    //right
+    if (y < width - 1) {
+      el.push(data[x][y + 1]);
+    }
   
-//     // top left
-//     if (x > 0 && y > 0) {
-//       el.push(data[x - 1][y - 1]);
-//     }
+    // top left
+    if (x > 0 && y > 0) {
+      el.push(data[x - 1][y - 1]);
+    }
   
-//     // top right
-//     if (x > 0 && y < width - 1) {
-//       el.push(data[x - 1][y + 1]);
-//     }
+    // top right
+    if (x > 0 && y < width - 1) {
+      el.push(data[x - 1][y + 1]);
+    }
   
-//     // bottom right
-//     if (x < height - 1 && y < width - 1) {
-//       el.push(data[x + 1][y + 1]);
-//     }
+    // bottom right
+    if (x < height - 1 && y < width - 1) {
+      el.push(data[x + 1][y + 1]);
+    }
   
-//     // bottom left
-//     if (x < height - 1 && y > 0) {
-//       el.push(data[x + 1][y - 1]);
-//     }
+    // bottom left
+    if (x < height - 1 && y > 0) {
+      el.push(data[x + 1][y - 1]);
+    }
   
-//     return el;
-//   };
+    return el;
+  };
   
   // get number of neighbouring mines for each board cell
 //   export const getNeighbours = (data: any, height: number, width: number) => {
@@ -178,27 +178,27 @@ export const initBoardData = (height: number, width: number, mines: number) => {
   };
   
   /* reveal logic for empty cell */
-//   export const revealEmpty = (
-//     x: number,
-//     y: number,
-//     data: any,
-//     height: number,
-//     width: number
-//   ) => {
-//     let area = traverseBoard(x, y, data, height, width);
+  export const revealEmpty = (
+    x: number,
+    y: number,
+    data: any,
+    height: number,
+    width: number
+  ) => {
+    let area = traverseBoard(x, y, data, height, width);
   
-//     area.map((value) => {
-//       if (
-//         !value.isFlagged &&
-//         !value.isRevealed &&
-//         (value.isEmpty || !value.isMine)
-//       ) {
-//         data[value.x][value.y].isRevealed = true;
-//         if (value.isEmpty) {
-//           revealEmpty(value.x, value.y, data, height, width);
-//         }
-//       }
-//     });
+    area.map((value) => {
+      if (
+        !value.isFlagged &&
+        !value.isRevealed &&
+        (value.isEmpty || !value.isMine)
+      ) {
+        data[value.x][value.y].isRevealed = true;
+        if (value.isEmpty) {
+          revealEmpty(value.x, value.y, data, height, width);
+        }
+      }
+    });
   
-//     return data;
-//   };
+    return data;
+  };
