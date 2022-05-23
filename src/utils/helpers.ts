@@ -1,6 +1,6 @@
 export const initBoardData = (height: number, width: number, mines: number) => {
     let data = createEmptyArray(height, width);
-    // data = plantMines(data, height, width, mines);
+    data = plantMines(data, height, width, mines);
     // data = getNeighbours(data, height, width);
     // console.log(data);
     return data;
