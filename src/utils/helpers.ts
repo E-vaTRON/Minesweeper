@@ -89,47 +89,47 @@ export const initBoardData = (height: number, width: number, mines: number) => {
 //     return updatedData;
 //   };
   
-//   export const getMines = (data: any) => {
-//     let mineArray: any[] = [];
+  export const getMines = (data: any) => {
+    let mineArray: any[] = [];
   
-//     data.map((datarow: any) => {
-//       datarow.map((dataitem: any) => {
-//         if (dataitem.isMine) {
-//           mineArray.push(dataitem);
-//         }
-//       });
-//     });
+    data.map((datarow: any) => {
+      datarow.map((dataitem: any) => {
+        if (dataitem.isMine) {
+          mineArray.push(dataitem);
+        }
+      });
+    });
   
-//     return mineArray;
-//   };
+    return mineArray;
+  };
   
-//   export const getFlags = (data: any) => {
-//     let flagArray: any[] = [];
+  export const getFlags = (data: any) => {
+    let flagArray: any[] = [];
   
-//     data.map((datarow: any) => {
-//       datarow.map((dataitem: any) => {
-//         if (dataitem.isFlagged) {
-//           flagArray.push(dataitem);
-//         }
-//       });
-//     });
+    data.map((datarow: any) => {
+      datarow.map((dataitem: any) => {
+        if (dataitem.isFlagged) {
+          flagArray.push(dataitem);
+        }
+      });
+    });
   
-//     return flagArray;
-//   };
+    return flagArray;
+  };
   
-//   export const getHidden = (data: any) => {
-//     let hiddenArray: any[] = [];
+  export const getHidden = (data: any) => {
+    let hiddenArray: any[] = [];
   
-//     data.map((datarow: any) => {
-//       datarow.map((dataitem: any) => {
-//         if (!dataitem.isRevealed) {
-//           hiddenArray.push(dataitem);
-//         }
-//       });
-//     });
+    data.map((datarow: any) => {
+      datarow.map((dataitem: any) => {
+        if (!dataitem.isRevealed) {
+          hiddenArray.push(dataitem);
+        }
+      });
+    });
   
-//     return hiddenArray;
-//   };
+    return hiddenArray;
+  };
   
   export const getRandomNumber = (dimension: any) => {
     return Math.floor(Math.random() * 1000 + 1) % dimension;
