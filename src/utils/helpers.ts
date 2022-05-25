@@ -1,8 +1,8 @@
 export const initBoardData = (height: number, width: number, mines: number) => {
     let data = createEmptyArray(height, width);
     data = plantMines(data, height, width, mines);
-    // data = getNeighbours(data, height, width);
-    // console.log(data);
+    data = getNeighbours(data, height, width);
+    console.log(data);
     return data;
   };
   
@@ -59,35 +59,35 @@ export const initBoardData = (height: number, width: number, mines: number) => {
   };
   
   // get number of neighbouring mines for each board cell
-//   export const getNeighbours = (data: any, height: number, width: number) => {
-//     let updatedData = data;
+  export const getNeighbours = (data: any, height: number, width: number) => {
+    let updatedData = data;
   
-//     for (let i = 0; i < height; i++) {
-//       for (let j = 0; j < width; j++) {
-//         if (data[i][j].isMine !== true) {
-//           let mine = 0;
-//           const area = traverseBoard(
-//             data[i][j].x,
-//             data[i][j].y,
-//             data,
-//             height,
-//             width
-//           );
-//           area.map((value: any) => {
-//             if (value.isMine) {
-//               mine++;
-//             }
-//           });
-//           if (mine === 0) {
-//             updatedData[i][j].isEmpty = true;
-//           }
-//           updatedData[i][j].neighbour = mine;
-//         }
-//       }
-//     }
+    for (let i = 0; i < height; i++) {
+      for (let j = 0; j < width; j++) {
+        if (data[i][j].isMine !== true) {
+          let mine = 0;
+          const area = traverseBoard(
+            data[i][j].x,
+            data[i][j].y,
+            data,
+            height,
+            width
+          );
+          area.map((value: any) => {
+            if (value.isMine) {
+              mine++;
+            }
+          });
+          if (mine === 0) {
+            updatedData[i][j].isEmpty = true;
+          }
+          updatedData[i][j].neighbour = mine;
+        }
+      }
+    }
   
-//     return updatedData;
-//   };
+    return updatedData;
+  };
   
   export const getMines = (data: any) => {
     let mineArray: any[] = [];
